@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Route } from 'react-router-dom';
+import ProductContext from './contexts/ProductContext';
 import data from './data';
 
 // Components
@@ -20,16 +21,9 @@ function App() {
 			<Navigation cart={cart} />
 
 			{/* Routes */}
-			<Route
-				exact
-				path="/"
-				render={() => (
-					<Products
-						products={products}
-						addItem={addItem}
-					/>
-				)}
-			/>
+			<ProductContext.Provider value={{ products, addItem }}>
+				<Route exact path="/" component={Products} />
+			</ProductContext.Provider>
 
 			<Route
 				path="/cart"
