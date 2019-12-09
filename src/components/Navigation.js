@@ -7,7 +7,7 @@ const Navigation = () => {
   // debugger
   return (
     <CartContext.Consumer>
-      {cart => (
+      {({cart}) => (
         <div className="navigation">
           <NavLink to="/">Products</NavLink>
           <NavLink to="/cart">
